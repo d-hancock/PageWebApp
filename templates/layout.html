@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<h1>sup</h1>
+
+{% trim block  %}
+{% for trim in trims %}
+    <div class="row">
+        <div class="col-xs-12">
+            <h2> {{ [trim['title']][0] }}</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+
+            <p>{{ [trim['content']][0] }}</p>
+            <ul>
+                {% for item in [trim['trim list']] %}
+                    {%  for li in item %}
+                    <li>{{ li }}</li>
+                        {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8_WujQFXwhk0bHSwJi5J1w99bShSEJZcx59W93H783YH91YZM"
+                 style="width: 100%">
+            <div class="col-xs-12">
+                <a class="col-xs-12 btn btn-default btn-lg"
+                   style="background-color: #016bbb; color: white; border-radius: 5px; width: 100%; margin: 5px 0px;"
+                   href="">{{ [trim['title']][0] }} Details</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>
